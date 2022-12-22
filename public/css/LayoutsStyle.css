@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+  font-family: 'Inter', sans-serif;
+}
+
+body{
+    height: 100%;
+    
+}
+html{
+  background-color:#F5F7FA;
+}
+.primary-btn{
+  background-color: #00D363;
+  padding: 10px 20px;
+  border-radius:10px ;
+  color: white;
+  text-decoration: none;
+  transition: 0.4s ease;
+}
+.primary-btn:hover{
+  background-color: #FFF;
+  border: 1px solid #00D363;
+  color: #00D363;
+  text-decoration: none;
+}
+.navbar {
+    transition: all 0.4s;
+    padding: 0 50px;
+}
+
+.navbar .nav-link  {
+    color: #fff;
+}
+.navbar .nav-dropdown{
+  color: #fff !important;
+}
+.navbar .cart{
+  margin-top: 5px;
+}
+
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar .navbar-brand {
+    color: #fff;
+}
+
+
+
+.navbar.active {
+    background: #fff;
+    opacity: 0.9;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.active .nav-dropdown {
+    color: #555 !important;
+}
+
+.navbar.active .nav-link {
+    color: #555;
+}
+
+.navbar.active .nav-link:hover,
+.navbar.active .nav-link:focus {
+    color: #555;
+    text-decoration: none;
+}
+
+.navbar.active .navbar-brand {
+    color: #555;
+}
+#logo_black{
+    display: none;
+}
+
+.navbar.active  #logo_black{      
+        display: inline;
+    } 
+    .navbar.active  #logo_white{      
+        display: none;
+} 
+
+.navbar img{
+    width: 250px;
+}
+
+
+.footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    bottom: 0;
+    
+  
+  }
+  
+  footer .col{
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   margin-bottom: 20px;
+  }
+  footer .logo{
+    margin-bottom: 30px;
+  }
+  footer h4{
+    font-size: 14px;
+    padding-bottom: 20px;
+  
+  }
+  footer p{
+    font-size: 13px;
+    margin: 0 0 8px 0;
+  }
+  footer a{
+    font-size: 13px;
+    text-decoration: none !important;
+    color: #222;
+    margin-bottom:10px;
+    transition: 0.2s;
+  
+  }
+  footer .follow{
+    margin-top: 20px;
+  
+  }
+  footer .follow i{
+    color: #465b52;
+    padding-right: 4px;
+    cursor: pointer;
+    transition: 0.2s
+  }
+  footer .install .row img{
+    border: 1px solid #088178;
+    border-radius: 6px;
+  }
+  footer .install img{
+    margin: 10px 0 15px 0;
+  }
+  footer .follow i:hover,
+  footer a:hover{
+    color: #088178;
+  }
+  footer .copyright{
+    width: 100%;
+    text-align: center;
+  }
+  @media (max-width:337px){
+    .navbar img{
+      width: 200px;
+    }
+  }
+  

@@ -1,0 +1,748 @@
+
+.hero {
+    display: grid;
+    position: relative;
+    grid-template-columns: 100vw;
+    grid-template-rows: 100vh;
+    place-items: center;
+    overflow: hidden;
+  }
+  .hero__bg, .hero__cnt {
+    align-self: center;
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  .hero__bg {
+    display: grid;
+    position: relative;
+    z-index: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+    animation: fade-in 0.75s linear;
+    will-change: opacity;
+  }
+  .hero__bg::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 5;
+    top: -10%;
+    right: -10%;
+    bottom: -10%;
+    left: -10%;
+    background: rgba(41, 4, 47, 0.4);
+    background-blend-mode: screen;
+  }
+  .hero__bg picture {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    animation: scaling-hero-anim 4s 0.25s cubic-bezier(0, 0.71, 0.4, 0.97) forwards;
+    will-change: transform;
+  }
+  .hero__bg img {
+    display: block;
+    object-fit: cover;
+    object-position: 77% 50%;
+    height: auto;
+    width: 100%;
+  }
+  .hero__cnt {
+    display: grid;
+    position: relative;
+    place-items: center;
+    z-index: 10;
+    color: #fff;
+    font-size: 2.5vw;
+    text-transform: uppercase;
+    opacity: 1;
+    animation: fade-in 0.75s 1.5s linear forwards;
+  }
+  .hero__cnt i {
+    font-size: 11vw;
+  }
+  .hero__cnt svg path {
+    fill: #fff;
+  }
+  .hero__cnt h1 {
+    margin-bottom: 0;
+  }
+  
+  .vacancies {
+
+    padding: 0 10vw 0 10vw;
+    margin-bottom: 150px;
+  }
+  
+  .job-listing-container {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .joblists {
+    padding: 0;
+    margin: 0;
+  }
+  .joblists a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+  }
+  .joblists a:hover {
+    text-decoration: none;
+  }
+  
+  .job-listing {
+    display: block;
+  }
+  .job-listing:nth-child(odd) {
+    background: #ffffff;
+  }
+  .job-listing:nth-child(even) {
+    background: #fafafa;
+  }
+  
+  .job-listing-details {
+    padding: 30px 35px 30px 35px;
+    transition: all 0.2s;
+    border-left: 3px solid transparent;
+  }
+  .job-listing-details:hover {
+    border-left: 3px solid #2a41e8;
+  }
+  .job-listing-details:hover button {
+    background: #2a41e8 !important;
+    color: white;
+  }
+  
+  .btn-secondary {
+    background-color: #333333e8 !important;
+    padding: 7px 9px 9px 7px !important;
+  }
+  
+  .job-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .job-info li {
+    padding-right: 10px;
+  }
+  
+  .job-listing-logo img {
+    max-width: 85px;
+  }
+  
+  .job-listing-company {
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+    font-size: 16px;
+  }
+  
+  .apply-button {
+    margin-left: auto;
+    margin-right: 30px;
+    background-color: #f0f0f0 !important;
+    transition: all 0.3s;
+  }
+
+
+  
+
+  .featured-section {
+    padding: 50px 0;
+  }
+
+
+  .featured-section .job{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 30px;
+    border: 1px solid rgb(141, 121, 121);
+    border-radius: 40px;
+    padding: 40px 20px;
+  }
+  
+  .featured-section .job img{
+    width: 150px;
+  }
+  .featured-section .job a{
+    text-decoration: none;
+    justify-self: flex-end;
+    font-size: 20px;
+    color: #373949;
+  }
+
+.popular_catagory_area .container .row .single_catagory img{
+  width: 150px;
+}
+
+.popular_catagory_area .container .row .single_catagory{
+  margin: 20px;
+  background-color: #FFF;
+  width: 270px;
+  height: 200px;
+  padding: 50px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.popular_catagory_area .container .row .single_catagory .small{
+  width: 110px;
+}
+.popular_catagory_area .container .row .single_catagory p {
+  color: #ACB3B9;
+  margin-top: 25px;
+  font-size: 14px;
+  width: 230px;
+}
+.popular_catagory_area .container .row .single_catagory p span{
+  border-radius: 8px;
+  background-color: #E6F3FF;
+  margin-right: 10px;
+  padding: 5px 18px;
+  color: #2799FF;
+}
+
+
+.job_listing_area {
+  background: #F5F7FA;
+  padding-bottom: 80px;
+}
+
+/* line 4, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area.plus_padding {
+  padding-top: 100px;
+}
+
+.bradcam_text{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 110px;
+}
+.bradcam_text h3{
+  color: white;
+  font-size: 60px;
+}
+
+@media (max-width: 767px) {
+  /* line 4, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+  .job_listing_area.plus_padding {
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* line 10, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+  .job_listing_area .brouse_job {
+    text-align: left !important;
+    margin-top: 20px;
+  }
+}
+
+/* line 16, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_lists {
+  margin-top: 50px;
+}
+
+/* line 18, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_lists .single_jobs {
+  padding: 30px;
+  margin-bottom: 12px;
+  border: 1px solid transparent;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.recent_joblist_wrap{
+  background-color: #fff;
+}
+
+@media (max-width: 767px) {
+  /* line 18, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+  .job_listing_area .job_lists .single_jobs {
+    display: block !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* line 27, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+  .job_listing_area .job_lists .single_jobs .jobs_left {
+    display: block !important;
+    overflow: hidden;
+  }
+}
+
+/* line 32, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_lists .single_jobs .jobs_left .thumb {
+  float: left;
+  width: 82px;
+  height: 82px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 15px;
+  background: #F5F7FA;
+  margin-right: 25px;
+  border: 1px solid #F0F0F0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 46, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_lists .single_jobs .jobs_left .jobs_conetent {
+  float: left;
+}
+
+/* line 48, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_lists .single_jobs .jobs_left .jobs_conetent h4 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.job_listing_area .job_lists .single_jobs .jobs_left .thumb  img{
+  width: 80px;
+}
+
+@media (max-width: 767px) {
+  /* line 48, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+  .job_listing_area .job_lists .single_jobs .jobs_left .jobs_conetent h4 {
+    margin-top: 15px;
+  }
+}
+
+/* line 56, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_lists .single_jobs .jobs_left .jobs_conetent h4:hover {
+  color: #00D363;
+}
+@media (max-width:397px) {
+    .bradcam_text h3{
+      font-size: 50px;
+    }
+}
+@media (max-width: 767px) {
+  /* line 60, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+  .job_listing_area .job_lists .single_jobs .jobs_left .jobs_conetent .links_locat {
+    display: block !important;
+  }
+}
+
+/* line 64, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_lists .single_jobs .jobs_left .jobs_conetent .links_locat .location {
+  margin-right: 50px;
+}
+
+@media (max-width: 767px) {
+  /* line 64, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+  .job_listing_area .job_lists .single_jobs .jobs_left .jobs_conetent .links_locat .location {
+    margin-right: 10px;
+  }
+}
+
+/* line 69, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_lists .single_jobs .jobs_left .jobs_conetent .links_locat .location p {
+  margin-bottom: 0;
+  font-size: 16px;
+  color: #AAB1B7;
+}
+
+/* line 73, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_lists .single_jobs .jobs_left .jobs_conetent .links_locat .location p i {
+  margin-right: 7px;
+}
+
+@media (max-width: 767px) {
+  /* line 82, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+  .job_listing_area .job_lists .single_jobs .jobs_right .apply_now {
+    margin: 10px 0;
+  }
+}
+
+/* line 87, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_lists .single_jobs .jobs_right .apply_now a.heart_mark {
+  width: 40px;
+  height: 40px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #00D363;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: center;
+  display: inline-block;
+  background: #EFFDF5;
+  margin-right: 15px;
+  padding-top: 12px;
+}
+
+/* line 98, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_lists .single_jobs .jobs_right .apply_now a.heart_mark:hover {
+  background: #00D363;
+  color: #fff;
+}
+
+/* line 103, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_lists .single_jobs .jobs_right .apply_now a.boxed-btn3 {
+  padding: 9px 27px 9px 27px;
+  font-size: 14px;
+}
+
+/* line 109, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_lists .single_jobs .jobs_right .date {
+  text-align: right;
+  margin-top: 10px;
+}
+
+@media (max-width: 767px) {
+  /* line 109, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+  .job_listing_area .job_lists .single_jobs .jobs_right .date {
+    text-align: left;
+  }
+}
+
+/* line 115, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_lists .single_jobs .jobs_right .date p {
+  margin-bottom: 0;
+  font-size: 14px;
+  font-style: italic;
+  color: #7A838B;
+}
+
+/* line 123, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_lists .single_jobs:hover {
+  border-color: #B2F2D0;
+}
+
+/* line 130, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_filter {
+  padding: 25px;
+  display: block;
+}
+
+/* line 133, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_filter h3 {
+  font-size: 20px;
+  margin-bottom: 25px;
+  color: #001D38;
+  font-weight: 400;
+}
+
+/* line 141, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_filter .form_inner .single_field input {
+  height: 60px;
+  border: 1px solid #E8E8E8;
+  padding: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* line 148, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_filter .form_inner .single_field input::placeholder {
+  color: #7A838B;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* line 154, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_filter .form_inner .single_field input:focus {
+  outline: none;
+}
+
+/* line 159, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_filter .form_inner .single_field .nice-select {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  color: #7A838B;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 767px) {
+  /* line 159, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+  .job_listing_area .job_filter .form_inner .single_field .nice-select {
+    margin-bottom: 20px;
+  }
+}
+
+/* line 169, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_filter .form_inner .single_field .nice-select:focus {
+  outline: none;
+}
+
+/* line 175, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_filter .form_inner .nice-select {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  color: #7A838B;
+  font-size: 16px;
+}
+
+
+@media (max-width: 767px) {
+  /* line 175, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+  .job_listing_area .job_filter .form_inner .nice-select {
+    margin-bottom: 20px;
+  }
+}
+
+/* line 184, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.job_listing_area .job_filter .form_inner .nice-select:focus {
+  outline: none;
+}
+
+/* line 192, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.recent_joblist {
+  padding: 15px 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+  /* line 192, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+  .recent_joblist {
+    margin-top: 40px;
+  }
+}
+
+/* line 199, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.recent_joblist h4 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  color: #001D38;
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  /* line 199, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+  .recent_joblist h4 {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* line 209, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+  .recent_joblist .serch_cat {
+    display: block !important;
+  }
+}
+
+/* line 216, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
+.recent_joblist .nice-select {
+  width: 180px;
+  height: 50px;
+  line-height: 50px;
+  color: #7A838B;
+  font-size: 16px;
+}
+
+.job_filter form .single_field select {
+  height: 60px;
+  border: 1px solid #E8E8E8;
+  padding: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.recent_joblist .recent{
+  height: 50px;
+  border: 1px solid #E8E8E8;
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.job_listing_area .job_filter .reset_btn button {
+  background-color: #00D363 ;
+  border: none;
+  padding: 15px 0;
+  margin-top: 40px;
+  color: white;
+  border-radius: 10px;
+}
+
+.range-slider {
+  position: relative;
+  width: 200px;
+  height: 35px;
+  text-align: center;
+}
+
+.range-slider input {
+  pointer-events: none;
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  top: 15px;
+  width: 200px;
+  outline: none;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.range-slider input::-webkit-slider-thumb {
+  pointer-events: all;
+  position: relative;
+  z-index: 1;
+  outline: 0;
+}
+
+.range-slider input::-moz-range-thumb {
+  pointer-events: all;
+  position: relative;
+  z-index: 10;
+  -moz-appearance: none;
+  width: 9px;
+}
+
+.range-slider input::-moz-range-track {
+  position: relative;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 1);
+  border: 0;
+}
+
+.range-slider input:last-of-type::-moz-range-track {
+  -moz-appearance: none;
+  background: none transparent;
+  border: 0;
+}
+
+.range-slider input[type=range]::-moz-focus-outer {
+border: 0;
+}
+
+.rangeValue {
+width: 30px;
+}
+
+.range-slider .output {
+position: absolute;
+border:1px solid #999;
+width: 60px;
+height: 30px;
+text-align: center;
+color: #999;
+border-radius: 4px;
+display: inline-block;
+font: bold 15px/30px Helvetica, Arial;
+bottom: 75%;
+left: 50%;
+transform: translate(-50%, 0);
+}
+
+.output.outputTwo {
+left: 100%;
+}
+
+input[type=range] {
+-webkit-appearance: none;
+background: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+height: 5px;
+border: none;
+border-radius: 3px;
+background: transparent;
+}
+
+input[type=range]::-ms-track {
+height: 5px;
+background: transparent;
+border: none;
+border-radius: 3px;
+}
+
+input[type=range]::-moz-range-track {
+height: 5px;
+background: transparent;
+border: none;
+border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+-webkit-appearance: none;
+border: none;
+height: 16px;
+width: 16px;
+border-radius: 50%;
+background: #555;
+margin-top: -5px;
+position: relative;
+z-index: 10000;
+}
+
+input[type=range]::-ms-thumb {
+-webkit-appearance: none;
+border: none;
+height: 16px;
+width: 16px;
+border-radius: 50%;
+background: #555;
+margin-top: -5px;
+position: relative;
+z-index: 10000;
+}
+
+input[type=range]::-moz-range-thumb {
+-webkit-appearance: none;
+border: none;
+height: 16px;
+width: 16px;
+border-radius: 50%;
+background: #555;
+margin-top: -5px;
+position: relative;
+z-index: 10000;
+}
+
+input[type=range]:focus {
+outline: none;
+}
+
+.full-range,
+.incl-range {
+width: 100%;
+height: 5px;
+left: 0;
+top: 21px;
+position: absolute;
+background: #DDD;
+}
+
+.incl-range {
+background: #00D363;
+}
