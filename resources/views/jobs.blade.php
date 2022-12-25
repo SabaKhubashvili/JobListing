@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{{asset('css/Style.css')}}">
 
 @section('header')
-    <style></style>
+
 @endsection
 
 @section('content')
@@ -28,69 +28,39 @@
                 <div class="job_filter white-bg">
                     <div class="form_inner white-bg">
                         <h3>Filter</h3>
-                        <form action="#">
+
+                        {!! Form::open([]) !!}
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="single_field">
-                                        <input type="text" placeholder="Search keyword">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="single_field">
-                                        <select class="wide">
-                                            <option data-display="Location">Location</option>
-                                            <option value="1">Rangpur</option>
-                                            <option value="2">Dhaka </option>
+                                        <select class="location" name="location">
+                                            @foreach ('App\Models\Tag'::whereIsLocation(1)->get() as $tag)
+                                            <option value="{{$tag->id}}">{{$tag->name}}</option>
+                                        @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="single_field">
-                                        <select class="wide">
-                                            <option data-display="Category">Category</option>
-                                            <option value="1">Category 1</option>
-                                            <option value="2">Category 2 </option>
+                                        <select class="language" name="language">
+                                            @foreach ('App\Models\Tag'::whereIsLanguage(1)->get() as $tag)
+                                            <option value="{{$tag->id}}">{{$tag->name}}</option>
+                                        @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="single_field">
-                                        <select class="wide">
-                                            <option data-display="Experience">Experience</option>
-                                            <option value="1">Experience 1</option>
-                                            <option value="2">Experience 2 </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="single_field">
-                                        <select class="wide">
-                                            <option data-display="Job type">Job type</option>
-                                            <option value="1">full time 1</option>
-                                            <option value="2">part time 2 </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="single_field">
-                                        <select class="wide">
-                                            <option data-display="Qualification">Qualification</option>
-                                            <option value="1">Qualification 1</option>
-                                            <option value="2">Qualification 2</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="single_field">
-                                        <select class="wide">
-                                            <option data-display="Gender">Gender</option>
-                                            <option value="1">male</option>
-                                            <option value="2">female</option>
+                                        <select class="type" name="type">
+                                            @foreach ('App\Models\Tag'::whereIsType(1)->get() as $tag)
+                                            <option value="{{$tag->id}}">{{$tag->name}}</option>
+                                        @endforeach
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        
+
                     </div>
                     <div class="range-slider">
                         <span class="output outputOne"></span>
@@ -101,8 +71,9 @@
                         <input name="rangeTwo" value="5000" min="0" max="5000" step="1" type="range">
                     </div>
                     <div class="reset_btn">
-                        <button  class="w-100" type="submit">Reset</button>
+                       {!! Form::submit('Submit',['class'=>'w-100 button']) !!}
                     </div>
+                    {!! Form::close() !!}
                 </div>
             </div>
             <div class="col-lg-9">
@@ -128,28 +99,33 @@
 
                 <div class="job_lists m-0">
                     <div class="row">
+                        @foreach ($jobs as $job)
+                            
+                        
                         <div class="col-lg-12 col-md-12">
                             <div class="single_jobs white-bg d-flex justify-content-between">
                                 <div class="jobs_left d-flex align-items-center">
                                     <div class="thumb">
-                                        <img src="{{asset('images/logo/JobsList-logos.jpeg')}}" alt="">
+                                        <img src="{{$job->logo_path}}" alt="">
                                     </div>
                                     <div class="jobs_conetent">
-                                        <a href="job_details.html"><h4>Software Engineer</h4></a>
+                                        <a href="{{route('jobs.show',$job->id)}}"><h4>{{$job->title}}</h4></a>
                                         <div class="links_locat d-flex align-items-center">
+                                            
+                                            @foreach ($job->tags as $tag)
+                                                
+                                            
                                             <div class="location">
-                                                <p> <i class="fa fa-map-marker"></i> California, USA</p>
+                                                <p><i class="{{$tag->icons->icon}}"></i>{{$tag->name}}</p>
                                             </div>
-                                            <div class="location">
-                                                <p> <i class="fa fa-clock-o"></i> Part-time</p>
-                                            </div>
+                                        @endforeach
                                         </div>
                                     </div>
                                 </div>
                                 <div class="jobs_right">
                                     <div class="apply_now">
                                         <a class="heart_mark" href="#"> <i class="fa fa-heart"></i> </a>
-                                        <a href="job_details.html" class="primary-btn">Apply Now</a>
+                                        <a href="{{route('jobs.show',$job->id)}}" class="primary-btn">Apply Now</a>
                                     </div>
                                     <div class="date">
                                         <p>Date line: 31 Jan 2020</p>
@@ -157,152 +133,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="single_jobs white-bg d-flex justify-content-between">
-                                <div class="jobs_left d-flex align-items-center">
-                                    <div class="thumb">
-                                        <img src="{{asset('images/logo/JobsList-logos.jpeg')}}" alt="">
-                                    </div>
-                                    <div class="jobs_conetent">
-                                        <a href="job_details.html"><h4>Digital Marketer</h4></a>
-                                        <div class="links_locat d-flex align-items-center">
-                                            <div class="location">
-                                                <p> <i class="fa fa-map-marker"></i> California, USA</p>
-                                            </div>
-                                            <div class="location">
-                                                <p> <i class="fa fa-clock-o"></i> Part-time</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="jobs_right">
-                                    <div class="apply_now">
-                                        <a class="heart_mark" href="#"> <i class="fa fa-heart"></i> </a>
-                                        <a href="job_details.html" class="boxed-btn3">Apply Now</a>
-                                    </div>
-                                    <div class="date">
-                                        <p>Date line: 31 Jan 2020</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="single_jobs white-bg d-flex justify-content-between">
-                                <div class="jobs_left d-flex align-items-center">
-                                    <div class="thumb">
-                                        <img src="{{asset('images/logo/JobsList-logos.jpeg')}}" alt="">
-                                    </div>
-                                    <div class="jobs_conetent">
-                                        <a href="job_details.html"><h4>Wordpress Developer</h4></a>
-                                        <div class="links_locat d-flex align-items-center">
-                                            <div class="location">
-                                                <p> <i class="fa fa-map-marker"></i> California, USA</p>
-                                            </div>
-                                            <div class="location">
-                                                <p> <i class="fa fa-clock-o"></i> Part-time</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="jobs_right">
-                                    <div class="apply_now">
-                                        <a class="heart_mark" href="#"> <i class="fa fa-heart"></i> </a>
-                                        <a href="job_details.html" class="boxed-btn3">Apply Now</a>
-                                    </div>
-                                    <div class="date">
-                                        <p>Date line: 31 Jan 2020</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="single_jobs white-bg d-flex justify-content-between">
-                                <div class="jobs_left d-flex align-items-center">
-                                    <div class="thumb">
-                                        <img src="{{asset('images/logo/JobsList-logos.jpeg')}}" alt="">
-                                    </div>
-                                    <div class="jobs_conetent">
-                                        <a href="job_details.html"><h4>Visual Designer</h4></a>
-                                        
-                                        <div class="links_locat d-flex align-items-center">
-                                            <div class="location">
-                                                <p> <i class="fa fa-map-marker"></i> California, USA</p>
-                                            </div>
-                                            <div class="location">
-                                                <p> <i class="fa fa-clock-o"></i> Part-time</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="jobs_right">
-                                    <div class="apply_now">
-                                        <a class="heart_mark" href="#"> <i class="fa fa-heart"></i> </a>
-                                        <a href="job_details.html" class="boxed-btn3">Apply Now</a>
-                                    </div>
-                                    <div class="date">
-                                        <p>Date line: 31 Jan 2020</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="single_jobs white-bg d-flex justify-content-between">
-                                <div class="jobs_left d-flex align-items-center">
-                                    <div class="thumb">
-                                        <img src="{{asset('images/logo/JobsList-logos.jpeg')}}" alt="">
-                                    </div>
-                                    <div class="jobs_conetent">
-                                        <a href="job_details.html"><h4>Software Engineer</h4></a>
-                                        <div class="links_locat d-flex align-items-center">
-                                            <div class="location">
-                                                <p> <i class="fa fa-map-marker"></i> California, USA</p>
-                                            </div>
-                                            <div class="location">
-                                                <p> <i class="fa fa-clock-o"></i> Part-time</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="jobs_right">
-                                    <div class="apply_now">
-                                        <a class="heart_mark" href="#"> <i class="fa fa-heart"></i> </a>
-                                        <a href="job_details.html" class="boxed-btn3">Apply Now</a>
-                                    </div>
-                                    <div class="date">
-                                        <p>Date line: 31 Jan 2020</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="single_jobs white-bg d-flex justify-content-between">
-                                <div class="jobs_left d-flex align-items-center">
-                                    <div class="thumb">
-                                        <img src="{{asset('images/logo/JobsList-logos.jpeg')}}" alt="">
-                                    </div>
-                                    <div class="jobs_conetent">
-                                        <a href="job_details.html"><h4>Creative Designer</h4></a>
-                                        <div class="links_locat d-flex align-items-center">
-                                            <div class="location">
-                                                <p> <i class="fa fa-map-marker"></i> California, USA</p>
-                                            </div>
-                                            <div class="location">
-                                                <p> <i class="fa fa-clock-o"></i> Part-time</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="jobs_right">
-                                    <div class="apply_now">
-                                        <a class="heart_mark" href="#"> <i class="fa fa-heart"></i> </a>
-                                        <a href="job_details.html" class="boxed-btn3">Apply Now</a>
-                                    </div>
-                                    <div class="date">
-                                        <p>Date line: 31 Jan 2020</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     {{-- <div class="row">
                         <div class="col-lg-12">

@@ -7,8 +7,8 @@ body{
     height: 100%;
     
 }
-html{
-  background-color:#F5F7FA;
+html, body{
+  background-color:#F5F7FA !important;
 }
 .primary-btn{
   background-color: #00D363;
@@ -54,7 +54,7 @@ html{
 
 .navbar.active {
     background: #fff;
-    opacity: 0.9;
+    opacity: 1  ;
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -152,9 +152,47 @@ html{
     width: 100%;
     text-align: center;
   }
+  nav .post_job{
+    text-align: center;
+    background-color: #00D363;
+    width: 130px;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-left: 40px;
+    color: white !important;
+  }
+
   @media (max-width:337px){
     .navbar img{
       width: 200px;
     }
   }
+  @media (max-width: 800px) {
+
+    footer{
+      flex-direction: column;
+      align-items: center;
+    }
+
+  }
+  @media (max-width: 991.98px) {
+    .navbar {
+        background: #fff;
+        padding: 0;
+    }
+
+    .navbar .navbar-brand, .navbar .nav-link {
+        color: #555;
+    }
+    .navbar .navbar-brand, .navbar .nav-dropdown {
+        color: #555 !important;
+    }
+    #logo_white{      
+        display: none
+     } 
+     #logo_black{
+        display: inline;
+     }
+     
+}
   

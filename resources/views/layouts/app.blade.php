@@ -5,11 +5,10 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('css/LayoutsStyle.css')}}">
     
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
   <body>
    
@@ -17,9 +16,9 @@
     
 <header class="header">
     <nav class="navbar navbar-expand-lg fixed-top py-3 logo">
-        <a href="{{url('/index')}}">
-        <img src="{{asset('images/logo/JobsList-logos_white.png')}}" id="logo_white" alt="IfItDoesntMatchAnyMedia">  
-        <img src="{{asset('images/logo/JobsList-logos_transparent.png')}}" id="logo_black" alt="IfItDoesntMatchAnyMedia">  
+        <a href="{{url('/')}}" class="logo_container">
+        <img src="{{asset('images/logo/JobsList-logos_white.png')}}" id="logo_white" alt="LogoWhite">  
+        <img src="{{asset('images/logo/JobsList-logos_transparent.png')}}" id="logo_black" alt="LogoBlack">  
     </a>
 
             <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
@@ -63,6 +62,7 @@
                 </div>
                 </li>
                 @endguest
+                 <li class="nav-item"><a href="{{route('jobs.create')}}" class="nav-link text-uppercase font-weight-bold post_job genric-btn">Post A Job</a></li>
                 </ul>
             </div>
         </div>@yield('header')
@@ -76,7 +76,7 @@
 </main>
     
    
-    <footer class   ="section-p1 footer" >
+    <footer class= "section-p1 footer" >
         <div class="col">
             <img class="logo" style="width:250px;" src="{{asset('images/logo/JobsList-logos_transparent.png')}}" alt="">
         </div>
@@ -109,8 +109,7 @@
          <p> C 202. JOBSLIST</p>
         </div>
       </footer>
-
-
+      
     <script src="https://kit.fontawesome.com/8f18f5e6c2.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
