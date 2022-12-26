@@ -2,6 +2,7 @@
 
 use App\Models\Job;
 use App\Models\Tag;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\Console\Input\Input;
 
@@ -23,3 +24,36 @@ Auth::routes();
 
 Route::resource('/jobs','App\Http\Controllers\JobsController');
 
+Route::get('/contact',function(){  
+    return view('contact');
+
+});
+
+Route::get('/jobs/filter/',function($location,$type,$language){
+
+
+    $location = $_GET['location'];
+    $type = $_GET['type'];
+    $language = $_GET['language'];
+
+    $location_tag =  Tag::find($location)->id;
+
+    $tags = Tag::all();
+
+   
+    $tags = Tag::findMany([$location, $type, $language]);
+
+    foreach($tags->jobs as $job){
+
+        dd($job);
+
+    }
+
+
+
+
+    
+     
+    // return view('jobs',compact(['jobs']));
+ 
+})->name('filter');

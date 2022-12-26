@@ -1,7 +1,17 @@
 @extends('layouts.app')
-
+<style>
+     .logo_container #logo_white{
+        display: none;
+    }
+    .logo_container #logo_black{
+        display: inline;
+    }
+    .navbar .navbar-nav .nav-item a{
+        color: black;
+    }
+</style>
 @section('content')
-<div class="container">
+<div class="container" style="margin-top: 150px; margin-bottom:180px;">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

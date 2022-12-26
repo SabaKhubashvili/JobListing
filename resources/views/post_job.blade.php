@@ -3,7 +3,17 @@
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{{asset('css/Style.css')}}">
 @section('header')
-    
+    <style>
+         .logo_container #logo_white{
+        display: none;
+    }
+    .logo_container #logo_black{
+        display: inline;
+    }
+    .navbar .navbar-nav .nav-item a{
+        color: black;
+    }
+    </style>
 @endsection
 
 @section('content')

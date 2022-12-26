@@ -28,7 +28,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="{{url('/')}}" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only">(current)</span></a></li>
                     <li class="nav-item"><a href="{{url('/jobs')}}" class="nav-link text-uppercase font-weight-bold">Jobs</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
+                    <li class="nav-item"><a href="{{url('contact')}}" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
                    
                     @guest
                     @if (Route::has('login'))
@@ -76,7 +76,7 @@
 </main>
     
    
-    <footer class= "section-p1 footer" >
+    <footer class= "section-p1 footer pt-5" >
         <div class="col">
             <img class="logo" style="width:250px;" src="{{asset('images/logo/JobsList-logos_transparent.png')}}" alt="">
         </div>
@@ -102,7 +102,7 @@
           <a href="#">Delivery Information</a>
           <a href="#">Privacy Policy</a>
           <a href="#">Terms & Conditions</a>
-          <a href="#">Contact Us</a>     
+          <a href="{{url('/contact')}}">Contact Us</a>     
         
         </div>
         <div class="copyright">

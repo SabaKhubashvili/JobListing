@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class JobsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct()
+    {
+        return $this->middleware('auth')->only(['create']);
+    }
     public function index()
     {
         $jobs = Job::all();

@@ -29,11 +29,11 @@
                     <div class="form_inner white-bg">
                         <h3>Filter</h3>
 
-                        {!! Form::open([]) !!}
+                        {!! Form::open(['route'=>['filter','location','language','type'],'method'=>'GET']) !!}
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="single_field">
-                                        <select class="location" name="location">
+                                        <select class="location" id="location" name="location">
                                             @foreach ('App\Models\Tag'::whereIsLocation(1)->get() as $tag)
                                             <option value="{{$tag->id}}">{{$tag->name}}</option>
                                         @endforeach
@@ -71,7 +71,7 @@
                         <input name="rangeTwo" value="5000" min="0" max="5000" step="1" type="range">
                     </div>
                     <div class="reset_btn">
-                       {!! Form::submit('Submit',['class'=>'w-100 button']) !!}
+                       {!! Form::submit('Submit',['class'=>'w-100 button', 'id'=>'submit']) !!}
                     </div>
                     {!! Form::close() !!}
                 </div>
@@ -106,7 +106,7 @@
                             <div class="single_jobs white-bg d-flex justify-content-between">
                                 <div class="jobs_left d-flex align-items-center">
                                     <div class="thumb">
-                                        <img src="{{$job->logo_path}}" alt="">
+                                        <img src="{{asset($job->logo_path)}}" alt="">
                                     </div>
                                     <div class="jobs_conetent">
                                         <a href="{{route('jobs.show',$job->id)}}"><h4>{{$job->title}}</h4></a>
@@ -189,5 +189,8 @@
       updateView.call(this);
     });
   });
+
+  // Select
+
     </script>
 @endsection

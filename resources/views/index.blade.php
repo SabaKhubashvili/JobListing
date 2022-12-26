@@ -99,7 +99,7 @@
               <div class="col-md-12">
                 <div class="job-headline mt-5 mb-3 d-flex justify-content-between align-items-baseline">
                   <h3>Recent Vacancies</h3>
-                  <a href="#" class="text-decoration-none">Browse All Jobs &rarr;</a>
+                  <a href="{{route("jobs.index")}}" class="text-decoration-none">Browse All Jobs &rarr;</a>
                 </div>
                 <div class="job-listing-container">
                   <ul class="joblists">
