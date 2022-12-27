@@ -4,6 +4,8 @@ use App\Models\Job;
 use App\Models\Tag;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Spatie\QueryBuilder\QueryBuilder;
+use Spatie\QueryBuilder\AllowedFilter;
 use Symfony\Component\Console\Input\Input;
 
 /*
@@ -29,31 +31,38 @@ Route::get('/contact',function(){
 
 });
 
-Route::get('/jobs/filter/',function($location,$type,$language){
-
-
+Route::get('/jobs/filter/{location}/{language}/{type}',function(){
     $location = $_GET['location'];
     $type = $_GET['type'];
     $language = $_GET['language'];
+    $salaryOne = $_GET['rangeOne'];
+    $salaryTwo = $_GET['rangeTwo'];
 
-    $location_tag =  Tag::find($location)->id;
+    
 
-    $tags = Tag::all();
+    $selected = $location;
 
-   
-    $tags = Tag::findMany([$location, $type, $language]);
-
-    foreach($tags->jobs as $job){
-
-        dd($job);
-
-    }
-
-
-
+    $jobs = Job::whereLocationId($location)->whereTypeId($type)->whereLanguageId($language)->where('salary', '>' , $salaryOne)->where('salary', '<', $salaryTwo)->get();
 
     
      
-    // return view('jobs',compact(['jobs']));
+    return view('jobs',compact(['jobs','selected']));
  
 })->name('filter');
+
+Route::get('job/filter/{language}', function($language){
+
+
+    $jobs = Job::whereLanguageId($language)->get();
+
+    return view('jobs',compact(['jobs']));
+
+
+
+})->name('LanguageFilter');
+
+Route::get('job/filter', function(){
+
+
+
+})->name('recent.filter');

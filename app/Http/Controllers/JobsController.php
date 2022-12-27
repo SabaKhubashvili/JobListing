@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
-use App\Models\Tag;
+use App\Models\Location;
+use App\Models\Language;
+use App\Models\Type;
 use App\Models\TagIcon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -33,9 +35,9 @@ class JobsController extends Controller
     public function create()
     {
         $error = null;
-        $locations = Tag::whereIsLocation(1)->get();
-        $languages = Tag::whereIsLanguage(1)->get();
-        $types = Tag::whereIsType(1)->get();
+        $locations = Location::get();
+        $languages = Language::get();
+        $types = Type::get();
 
         return view('post_job', compact(['locations','languages','types','error']));
     }
@@ -48,9 +50,7 @@ class JobsController extends Controller
      */
     public function store(Request $request)
     {
-        $locations = Tag::whereIsLocation(1)->get();
-        $languages = Tag::whereIsLanguage(1)->get();
-        $types = Tag::whereIsType(1)->get();
+
 
         if($request->salary < 100){
             $error = 'Please Enter Valid Salary';
@@ -66,6 +66,9 @@ class JobsController extends Controller
         $job->benefits = $request->benefits;
         $job->salary = $request->salary;
         $job->company = $request->job_company;
+        $job->location_id = $request->location;
+        $job->type_id = $request->type;
+        $job->language_id = $request->language;
 
         
 
@@ -78,9 +81,7 @@ class JobsController extends Controller
             $job->logo_path  = $name;
         }
         $job->save();
-        $job->tags()->attach($request->location);
-        $job->tags()->attach($request->type);
-        $job->tags()->attach($request->language);
+
 
         return redirect()->intended('/jobs');
         
@@ -130,8 +131,6 @@ class JobsController extends Controller
     public function destroy($id)
     {
         $job= Job::findOrFail($id);
-
-        $job->tags()->detach();
 
         $job->delete();
 

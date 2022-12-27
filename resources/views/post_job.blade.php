@@ -43,6 +43,7 @@
                         <div class="relative">
                           <select class="block appearance-none w-full  border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500" id="job-type" name="type">
                             @foreach ($types as $type)
+                            
                                 <option value="{{$type->id}}">{{$type->name}}</option>
                             @endforeach
                           </select>
@@ -58,6 +59,7 @@
                       <label for="location" class="block text-gray-700 text-sm mb-2">Location</label>
                       <select class="block appearance-none w-full  border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500" id="job-type" name="location">
                         @foreach ($locations as $location)
+
                         <option value="{{$location->id}}">{{$location->name}}</option>                  
                         @endforeach
                       </select>
@@ -68,7 +70,9 @@
                     <label for="Language" class="block text-gray-700 text-sm mb-2">Language</label>
                     <select class="block appearance-none w-full  border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500" id="language" name="language">
                       @foreach ($languages as $language)
+
                       <option value="{{$language->id}}">{{$language->name}}</option>
+
                       @endforeach
                     </select>
                   </div>

@@ -22,6 +22,9 @@ return new class extends Migration
             $table->string('benefits', 660);
             $table->integer('salary');
             $table->string('company');
+            $table->integer('location_id');
+            $table->integer('type_id');
+            $table->integer('language_id');
             $table->string('logo_path')->default('default.jpeg');
             $table->timestamps();
         });

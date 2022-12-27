@@ -1,19 +1,32 @@
 @extends('layouts.app')
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{asset('css/Style.css')}}">
 
-<style>
-    .logo_container #logo_white{
+@section('header')
+
+
+
+    <style>
+   .logo_container #logo_white{
         display: none;
     }
     .logo_container #logo_black{
         display: inline;
     }
-    .navbar .navbar-nav .nav-item a{
-        color: black;
+
+    .navbar.active .nav-item a{
+    color: black;
+}
+    .navbar .nav-item a:hover{
+      color: black;
+    }
+    .navbar .nav-item .profile{
+      color: black !important;
+    }
+    .navbar .nav-item a{
+      color: black
     }
 </style>
-@section('header')
-    
 @endsection
 
 @section('content')
@@ -33,12 +46,14 @@
             Senior Mobile Developer for Flutter / Dart
           </h1>
 
-          @foreach ($job->tags as $tag)
+       
               
           
-          <i class="{{$tag->icons->icon}}" style="margin-right: 10px"></i><span class="job-type text-white p-1 text-xs mr-4" style="background-color: #00D363; border-radius:5px; ">{{$tag->name}}</span>
+          <i class="fas fa-search-location" style="margin-right: 10px"></i><span class="job-type text-white p-1 text-xs mr-4" style="background-color: #00D363; border-radius:5px; ">{{$job->location->name}}</span>
+          <i class="fa fa-code" style="margin-right: 10px"></i><span class="job-type text-white p-1 text-xs mr-4" style="background-color: #00D363; border-radius:5px; ">{{$job->language->name}}</span>
+          <i class="fas fa-clock" style="margin-right: 10px"></i><span class="job-type text-white p-1 text-xs mr-4" style="background-color: #00D363; border-radius:5px; ">{{$job->type->name}}</span>
             
-          @endforeach
+      
         </div>
         
         <!--     

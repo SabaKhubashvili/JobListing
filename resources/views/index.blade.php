@@ -41,50 +41,50 @@
             <div class="row">
                 <div class="col-lg-4 col-xl-3 col-md-6 ">
                     <div class="single_catagory">
-                        <a href="jobs.html"><img src="{{asset('images/job-logo/php.png')}}" alt="" srcset=""></a>
-                        <p> <span>50</span> Available positions</p>
+                        <a href="{{route('LanguageFilter', 1)}}"><img src="{{asset('images/job-logo/php.png')}}" alt="" srcset=""></a>
+                        <p> <span>{{count($jobs->where('language_id',1))}}</span> Available positions</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
-                        <a href="jobs.html"><img src="{{asset('images/job-logo/Laravel.png')}}" alt="" srcset=""></a>
-                        <p> <span>50</span> Available positions</p>
+                        <a href="{{route('LanguageFilter', 2)}}"><img src="{{asset('images/job-logo/Laravel.png')}}" alt="" srcset=""></a>
+                        <p> <span>{{count($jobs->where('language_id',2))}}</span> Available positions</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
-                        <a href="jobs.html"><img src="{{asset('images/job-logo/javascript.png')}}" alt="" srcset=""></a>
-                        <p> <span>50</span> Available positions</p>
+                        <a href="{{route('LanguageFilter', 3)}}"><img src="{{asset('images/job-logo/javascript.png')}}" alt="" srcset=""></a>
+                        <p> <span>{{count($jobs->where('language_id',3))}}</span> Available positions</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
-                        <a href="jobs.html"><img src="{{asset('images/job-logo/Python.png')}}" class="small" alt="" srcset=""></a>
-                        <p> <span>50</span> Available positions</p>
+                        <a href="{{route('LanguageFilter', 6)}}"><img src="{{asset('images/job-logo/Python.png')}}" class="small" alt="" srcset=""></a>
+                        <p> <span>{{count($jobs->where('language_id', 6))}}</span> Available positions</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
-                        <a href="jobs.html"><img src="{{asset('images/job-logo/vue.png')}}" alt="" srcset=""></a>
-                        <p> <span>50</span> Available positions</p>
+                        <a href="{{route('LanguageFilter', 5)}}"><img src="{{asset('images/job-logo/vue.png')}}" alt="" srcset=""></a>
+                        <p> <span>{{count($jobs->where('language_id',5))}}</span> Available positions</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
-                        <a href="jobs.html"><img src="{{asset('images/job-logo/C1.png')}}" class="small" alt="" srcset=""></a>
-                        <p> <span>50</span> Available positions</p>
+                        <a href="{{route('LanguageFilter', 7)}}"><img src="{{asset('images/job-logo/C1.png')}}" class="small" alt="" srcset=""></a>
+                        <p> <span>{{count($jobs->where('language_id', 7))}}</span> Available positions</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
-                        <a href="jobs.html"><img src="{{asset('images/job-logo/C2.png')}}" class="small" alt="" srcset=""></a>
-                        <p> <span>50</span> Available positions</p>
+                        <a href="{{route('LanguageFilter', 8)}}"><img src="{{asset('images/job-logo/C2.png')}}" class="small" alt="" srcset=""></a>
+                        <p> <span>{{count($jobs->where('language_id', 8))}}</span> Available positions</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
-                        <a href="jobs.html"><img src="{{asset('images/job-logo/React.png')}}" alt="" srcset=""></a>
-                        <p> <span>50</span> Available positions</p>
+                        <a href="{{route('LanguageFilter', 4)}}"><img src="{{asset('images/job-logo/React.png')}}" alt="" srcset=""></a>
+                        <p> <span>{{count($jobs->where('language_id', 4))}}</span> Available positions</p>
                     </div>
                 </div>
             </div>
@@ -117,21 +117,21 @@
                           </h4>
                           <h3 class="job-listing-title">{{$job->title}}</h3>
                           <span class="badge btn-secondary">
-                            Salary Undisclosed
+                            Salary Undiscled
                           </span>
                           <span class="badge btn-secondary">
-                            Deadline 31 Dec 2021
+                            {{$job->created_at->format('jS M Y')}}
                           </span>
                           <div class="job-listing-footer">
                             <ul class="job-info d-flex text-secondary mt-2 flex-wrap">
                               <li class="d-flex" style="flex-direction: row">
 
-                                @foreach ($job->tags as $tag)
                                 
-                                <p class="mr-4"><i class="{{$tag->icons->icon}}" style="margin-right:6px;"></i>{{$tag->name}}</p>
+                                <p class="mr-4"><i class="fas fa-search-location mr-2"></i>{{$job->location->name}}</p>
+                                <p class="mr-4"><i class="fa fa-code mr-2" aria-hidden="true"></i>{{$job->language->name}}</p>
+                                <p class="mr-4"><i class="fas fa-clock mr-2"></i>{{$job->type->name}}</p>
                                 
-                                @endforeach
-
+                
                               </li>
                             </ul>
                           </div>

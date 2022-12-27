@@ -390,7 +390,12 @@
     margin: 10px 0;
   }
 }
-
+.job_listing_area .job_lists .single_jobs .jobs_right .apply_now {
+  width: 250px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
 /* line 87, ../../Arafath/CL/December/235. Job board/HTML/scss/_job_list.scss */
 .job_listing_area .job_lists .single_jobs .jobs_right .apply_now a.heart_mark {
   width: 40px;
@@ -597,13 +602,32 @@
   margin-bottom: 20px;
 }
 
-.job_listing_area .job_filter .reset_btn .button {
+.job_listing_area .job_filter .submit_btn .button {
   background-color: #00D363 ;
   border: none;
   padding: 15px 0;
   margin-top: 40px;
   color: white;
   border-radius: 10px;
+}
+
+.job_listing_area .job_filter .reset_btn {
+  width: 100%;
+  margin-top: 40px !important;
+  text-align: center;
+}
+.job_listing_area .job_filter .reset_btn a{
+
+  background-color: #3B7A57;
+  border: none;
+  width: 100%;
+  padding: 20px;
+  height: 100%;
+  color: white;
+  border-radius: 10px;
+}
+.job_listing_area .job_filter .reset_btn a:hover{
+  text-decoration: none;
 }
 
 @media (max-width:1010px){
@@ -704,6 +728,16 @@ transform: translate(-50%, 0);
 
 .output.outputTwo {
 left: 100%;
+}
+
+.job_lists .no-vacancies{
+  margin: 30px auto;
+}
+@media (max-width: 516px){
+  .job_lists .no-vacancies{
+    width: 250px;
+    margin-bottom: 50px;
+  }
 }
 
 input[type=range] {

@@ -17,9 +17,16 @@ class Job extends Model
       'salary'
     ];
 
-    public function tags(){
-        return $this->belongsToMany('App\Models\Tag')->as('tag');
+    public function location(){
+        return $this->belongsTo('App\Models\location', 'location_id');
     }
+
+    public function language(){
+        return $this->belongsTo('App\Models\language', 'language_id');
+    }
+    public function type(){
+      return $this->belongsTo('App\Models\type', 'type_id');
+  }
 
     public function getLogoPathAttribute($value){
       return 'images/job/' . $value;

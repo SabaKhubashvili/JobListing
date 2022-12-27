@@ -44,7 +44,7 @@
                     @endif
                 @else
                   <li class="nav-item dropdown">
-                    <a class="nav-link nav-dropdown dropdown-toggle text-uppercase font-weight-bold"  type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                    <a class="nav-link nav-dropdown dropdown-toggle text-uppercase font-weight-bold profile"  type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             {{ Auth::user()->name }}
                     </a>
@@ -62,7 +62,7 @@
                 </div>
                 </li>
                 @endguest
-                 <li class="nav-item"><a href="{{route('jobs.create')}}" class="nav-link text-uppercase font-weight-bold post_job genric-btn">Post A Job</a></li>
+                 <li class="nav-item"><a href="{{route('jobs.create')}}" style="color: white !important;" class="nav-link text-uppercase font-weight-bold post_job genric-btn">Post A Job</a></li>
                 </ul>
             </div>
         </div>@yield('header')
