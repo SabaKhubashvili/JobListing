@@ -4,14 +4,24 @@
 <link rel="stylesheet" href="{{asset('css/Style.css')}}">
 @section('header')
     <style>
-         .logo_container #logo_white{
+     .logo_container #logo_white{
         display: none;
     }
     .logo_container #logo_black{
         display: inline;
     }
-    .navbar .navbar-nav .nav-item a{
-        color: black;
+
+    .navbar.active .nav-item a{
+    color: black;
+}
+    .navbar .nav-item a:hover{
+      color: black;
+    }
+    .navbar .nav-item .profile{
+      color: black !important;
+    }
+    .navbar .nav-item a{
+      color: black
     }
     </style>
 @endsection
