@@ -16,6 +16,6 @@ class IndexController extends Controller
         
         $languages = Language::all();
 
-        return view('index',compact(['recent_jobs','jobs']));
+        return view('index',compact(['recent_jobs','jobs','languages']));
     }
 }
