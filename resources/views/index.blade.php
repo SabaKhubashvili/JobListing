@@ -1,5 +1,5 @@
 @extends('layouts.app')
-  <link rel="stylesheet" href="{{asset('css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('public/css/style.css')}}">
 
 @section('header')
 @endsection
